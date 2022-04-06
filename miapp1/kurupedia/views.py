@@ -23,8 +23,8 @@ def register(request):
     if request.method=='POST':
        form=UserCreationForm(request.POST)
        if form.is_valid():
-            username=form.cleaned_data['Usuario.nombre']
-            messages.succes(request,f'usuario {Usuario.nombre} creado')
+            username=form.cleaned_data['username']
+            #messages.succes(request,f'usuario {username} creado')
             return redirect('home')
     else:
         form=UserCreationForm()

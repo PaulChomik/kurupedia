@@ -120,10 +120,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'miapp/static'),)
+STATIC_URL = 'static/'     #no es neecesario ya que yo adjunto el path del static file en el html de home, cargando asi el css de todo junto
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'miapp/static'),)#parece que si es necesario porque creé elementos de la base de datos que utilizan el archivo static
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL='feed' #esto hay que verlo que onda porque el feed puede ser el menu de inicio
+LOGIN_REDIRECT_URL='home' #esto hay que verlo que onda porque el feed puede ser el menu de inicio

@@ -10,18 +10,18 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    image=models.ImageField(default='blackhole.jpg')
+    image=models.ImageField(default='blackhole.png')
 
     def __str__(self):
         return f'Perfil de {self.user.username}'
 
 class Post(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='posts')
-    timestamp=models.DateTimeField(default=timezone.now)
+    timestamp=models.DateTimeField(default=timezone.now)   #fecha de creado
     content=models.TextField()
 
     class Meta:   #esto indica como se va a comportar una clase
-        ordering=['-timestamp']
+        ordering=['-timestamp'] #indica que si hay un criterio de ordenacion sera por "mas nuevo"
 
     def __str__(self):
         return f'{self.user.username}:{self.content}'
